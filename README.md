@@ -1,143 +1,116 @@
-# Potato Plant Disease Detection Using CNN
+# Plant Disease Detection Web App
 
-This project involves detecting diseases in potato plants (e.g., early blight, late blight, or healthy leaves) using a Convolutional Neural Network (CNN). It leverages image classification techniques to aid farmers in identifying plant diseases at an early stage, minimizing crop losses.
-
----
-
-## Table of Contents
-
-- [Features](#features)
-- [Dataset](#dataset)
-- [Model Architecture](#model-architecture)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Training and Evaluation](#training-and-evaluation)
-- [Prediction](#prediction)
-- [Results](#results)
-- [Future Enhancements](#future-enhancements)
-- [License](#license)
+## Description
+The **Plant Disease Detection Web App** is a Streamlit-based application that allows users to detect plant diseases by uploading images of plant leaves. It provides descriptions and possible treatment links for the detected disease in the selected plant type. The application also supports multiple languages for user convenience.
 
 ---
 
 ## Features
-
-- **Image Classification**: Classifies potato plant leaves into categories (e.g., early blight, late blight, healthy).
-- **Real-time Detection**: Detects diseases using images of plant leaves.
-- **Visualization**: Displays training and validation metrics.
-- **Deployment Ready**: Export the trained model for web or mobile integration.
-
----
-
-## Dataset
-
-- The dataset used is the **PlantVillage Dataset** or any dataset containing labeled images of potato plant diseases.
-- Ensure the dataset is organized into `train`, `validation`, and `test` directories with subfolders for each class (e.g., `healthy`, `early_blight`, `late_blight`).
+- **Multi-language Support**: Uses Google Translate API to translate UI and results into different languages.
+- **Plant Disease Detection**: Identifies diseases in plants such as Potato, Grape, Apple, and Pepper Bell.
+- **Detailed Information**: Provides descriptions and treatment options for detected diseases.
+- **Image Upload**: Allows users to upload leaf images in `.jpg`, `.jpeg`, and `.png` formats.
+- **Confidence Score**: Displays the model’s confidence level for the prediction.
 
 ---
 
-## Model Architecture
-
-The CNN architecture consists of:
-
-1. **Convolution Layers**: Extract spatial features from images.
-2. **Pooling Layers**: Reduce dimensionality while retaining key features.
-3. **Dropout Layers**: Prevent overfitting.
-4. **Dense Layers**: Perform classification based on extracted features.
+## Tech Stack
+- **Frontend**: [Streamlit](https://streamlit.io/)
+- **Machine Learning**: TensorFlow for image classification.
+- **Translation**: Google Translate API
+- **Backend**: Python
 
 ---
 
 ## Installation
-
 ### Prerequisites
+1. Python 3.7+
+2. Required Python Libraries:
+   - streamlit
+   - tensorflow
+   - pillow
+   - googletrans==4.0.0-rc1
 
-- Python 3.7+
-- TensorFlow, Keras, NumPy, Matplotlib, OpenCV
-
-### Installation Steps
-
+### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/potato-disease-detection.git
-   cd potato-disease-detection
+   git clone <repository-url>
+   cd <repository-folder>
    ```
+
 2. Install dependencies:
    ```bash
    pip install -r requirements.txt
    ```
 
----
-
-## Usage
-
-### Training the Model
-
-1. Organize your dataset:
-   ```plaintext
-   dataset/
-       train/
-           healthy/
-           early_blight/
-           late_blight/
-       validation/
-           healthy/
-           early_blight/
-           late_blight/
-       test/
-           healthy/
-           early_blight/
-           late_blight/
-   ```
-2. Train the model:
+3. Run the Streamlit app:
    ```bash
-   python train_model.py
+   streamlit run app.py
    ```
 
-### Predicting with the Model
-
-1. Use the trained model to predict a single image:
-   ```bash
-   python predict.py --image path_to_image.jpg
-   ```
+4. Open the app in your browser at `http://localhost:8501`.
 
 ---
 
-## Training and Evaluation
-
-- **Training Metrics**: Accuracy and loss are tracked for each epoch.
-- **Validation Metrics**: Model performance is validated after each epoch.
-- **Test Evaluation**: Final model accuracy is evaluated on the test dataset.
+## How to Use
+1. Launch the app using the installation steps.
+2. Select your preferred language from the dropdown menu.
+3. Choose the plant type (e.g., Potato, Grape, Pepper Bell, Apple).
+4. Upload a leaf image using the file uploader.
+5. View the predicted disease, confidence level, description, and treatment options.
 
 ---
 
-## Prediction
+## Supported Plants and Diseases
+1. **Potato**
+   - Early Blight
+   - Late Blight
+   - Healthy
 
-Use the `predict.py` script to test the model on new images:
-```bash
-python predict.py --image path_to_image.jpg
-```
+2. **Grape**
+   - Black Rot
+   - Esca (Black Measles)
+   - Grape Leaf Blight (Isariopsis Leaf Spot)
+   - Healthy
+
+3. **Pepper Bell**
+   - Bacterial Spot
+   - Healthy
+
+4. **Apple**
+   - Apple Scab
+   - Black Rot
+   - Cedar Apple Rust
+   - Healthy
 
 ---
 
 ## Results
-
-- Achieved an accuracy of **96%** on the validation dataset.
+- Achieved an accuracy of 96% on the validation dataset.
 - Confusion matrix and class-wise accuracy available in the evaluation report.
 
 ---
 
 ## Future Enhancements
-
 - **Expand Dataset**: Add more classes and samples for better generalization.
 - **Real-time Integration**: Integrate with IoT devices for field applications.
 - **Mobile App Deployment**: Use TensorFlow Lite for Android/iOS applications.
 
 ---
 
-## License
-
-This project is licensed under the [MIT License](LICENSE).
+## Dataset
+The dataset used is the PlantVillage Dataset or any dataset containing labeled images of multiple plant diseases (e.g., potato, grape, apple, pepper bell).
+Ensure the dataset is organized into train, validation, and test directories with subfolders for each class (e.g., healthy, early_blight, late_blight for potato; black_rot, esca for grape).
 
 ---
 
-For contributions or issues, feel free to raise a pull request or open an issue in the repository.
+## Contributing
+Feel free to contribute to this project by opening issues or submitting pull requests.
+
+---
+
+## References
+- [TensorFlow Documentation](https://www.tensorflow.org/)
+- [Streamlit Documentation](https://docs.streamlit.io/)
+- [Google Translate API](https://cloud.google.com/translate/docs)
 
